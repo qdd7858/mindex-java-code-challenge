@@ -67,6 +67,7 @@ public class ReportingStructureServiceImplTest {
 
         // test for self report
         Employee pete = restTemplate.getForEntity(employeeIdUrl, Employee.class, PETE_ID).getBody();
+        assertNotNull(pete);
         pete.setDirectReports(new ArrayList<>(Arrays.asList(pete)));
         ReportingStructure peteReport = restTemplate.getForEntity(reportingStructureUrl, ReportingStructure.class,
                 PETE_ID).getBody();
